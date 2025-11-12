@@ -1,0 +1,32 @@
+{
+  "movies": [
+    {
+      "id": "1",
+      "title": "Harry Potter",
+      "price": 100,
+      "imgUrl": "https://cdn.cdon.com/media-dynamic/images/product/movie/dvd/image2/harry_potter_and_the_philosophers_stone_nordic-38572641-.jpg?imWidth=600",
+      "description": "Harry the wizard who loves magic"
+    },
+    {
+      "title": "Pippi",
+      "description": "test beskrivning 2",
+      "price": 130,
+      "imgUrl": "https://media.posterstore.com/site_images/68630a657d2ae084e1827c11_1856039899_PS53142-4.jpg",
+      "id": "2"
+    },
+    {
+      "id": "3",
+      "title": "Gladiator",
+      "price": 120,
+      "imgUrl": "https://upload.wikimedia.org/wikipedia/en/f/fb/Gladiator_%282000_film_poster%29.png",
+      "description": "Den oslagbare gladiatorn"
+    },
+    {
+      "id": 1762977716187,
+      "title": "Sune",
+      "description": "Sune på semester",
+      "imgUrl": "https://filmhyllan.nu/images/zoom/sunessommarsunesjuldvd.jpg",
+      "price": "25"
+    }
+  ]
+}

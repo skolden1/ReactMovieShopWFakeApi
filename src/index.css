@@ -1,0 +1,247 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0px;
+  padding: 0px;
+  background-color: rgb(59, 58, 58);
+  color: rgb(255, 255, 255);
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.header-container{
+  display: flex;
+  justify-content:center;
+  margin: 20px;
+  align-items: center;
+  
+
+  label{
+    font-size: 1.2rem;
+    margin-right: 10px;
+  }
+
+  input{
+    height: 25px;
+    min-width: 300px;
+  }
+
+  button{
+    padding: 5px 10px;
+    background-color: rgb(104, 103, 190);
+    color: aliceblue;
+    border: 0;
+    margin-left: 5px;
+    cursor: pointer;
+  }
+  button:hover{
+    background-color: rgb(93, 93, 161);
+  }
+}
+
+.movies-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.card{
+  border: 1px solid black;
+  padding: 5px;
+  min-width: 300px;
+  max-width: 350px;
+  border-radius: 10px;
+  background-color: rgb(78, 78, 95);
+
+  img{
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    margin-top: 20px;
+  }
+
+  h2, p, h4 {
+    text-align: center;
+  }
+  p{
+    font-size: 1.3rem;
+  }
+  button{
+    margin: 10px;
+    background-color: rgb(190, 209, 235);
+    padding: 10px;
+    border: 0;
+    border-radius: 3px;
+    font-size: 15px;
+    color: rgb(67, 68, 70);
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
+
+.movieDetailContainer{
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+
+  .button-flex{
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+.form-container{
+  border: 1px solid gray;
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  margin: 2rem auto;
+
+  label{
+    display: flex;
+    margin: 12px auto;
+  }
+
+  input{
+    min-width: 300px;
+    min-height: 30px;
+  }
+
+  button{
+    display: block;
+    margin: 20px auto;
+    background-color: rgb(189, 37, 87);
+    padding: 10px;
+    color: aliceblue;
+    border: 0;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+}
+
+.adminLink{
+  color: aliceblue;
+  margin-right: 40px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  :hover{
+    color: rgb(110, 122, 122);
+  }
+}
+/* link från admin till home */
+.bkHome{
+  font-size: 1.3rem;
+  color: aliceblue;
+  text-decoration: none;
+  margin: 10px 10px;
+  display: block;
+}
+
+.admin-h1{
+  text-align: center;
+}
+
+.bkHome:hover{
+  color: rgb(110, 122, 122);
+}
+
+
+.admin-container {
+  margin: 40px 10px;
+  display: flex;
+  justify-content: center; 
+  align-items: flex-start;
+  gap: 10rem; 
+}
+
+.movie-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.movie-element {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid gray;
+  max-width: 600px;
+  width: 100%;
+  padding: 10px 10px;
+  border-radius: 8px;
+  background-color: rgb(78, 78, 95);
+  min-width: 400px;
+}
+
+.createMovie-section {
+  background: none; 
+  border: none; 
+  padding: 0px 20px;
+  max-width: 400px;
+  width: 100%;
+  text-align: left;
+  border: 1px solid; 
+}
+
+.createMovie-section label{
+  display: flex;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.createMovie-section input{
+  min-width: 250px;
+  margin-bottom: 10px;
+  height: 30px;
+}
+
+.createMovie-section button{
+  display: block;
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+.createMovie-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  
+}
+
+button{
+  cursor: pointer;
+  background-color: rebeccapurple;
+  border: 0;
+  padding: 5px 15px;
+  font-size: 16px;
+  color: aliceblue;
+}
+
+button:hover {
+  background-color: rgb(51, 29, 80);
+}
+
+
+.createMovie-section{
+
+}
+
+/* 
+spinner test */
+.loader {
+  text-align: center;
+  margin-top: 100px;
+  font-size: 1.5rem;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0.5; }
+}
+
+
+
+
+
