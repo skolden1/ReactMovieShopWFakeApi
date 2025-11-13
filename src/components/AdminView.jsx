@@ -83,6 +83,7 @@ async function createMovie(formData){
 
   const renderMovies = props.movies.map(movie => {
     return <div className="movie-element" key={movie.id}>
+        <img src={movie.imgUrl} />
         <h3>{`${movie.title} (${movie.price}kr)`}</h3>
         <button onClick={() => handleClick(movie.id)}>Ändra</button>
         <button onClick={() => removeMovieById(movie.id)}>Ta bort</button>
