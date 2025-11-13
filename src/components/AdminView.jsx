@@ -3,6 +3,9 @@ import { Link } from "react-router-dom"
 
 const AdminView = (props) => {
 
+  //placeholder pic
+  const placeholderPic = "https://www.nomadfoods.com/wp-content/uploads/2018/08/placeholder-1-e1533569576673.png"
+
   const [toggleForm, setToggleForm] = useState(false)
   const [editMovieId, setEditMovieId] = useState(null)
 
@@ -20,10 +23,10 @@ const AdminView = (props) => {
   }
 
   async function editMovie(formData){
-    const title = formData.get("title")
-    const desc = formData.get("description")
-    const imgUrl = formData.get("picUrl")
-    const price = formData.get("price")
+    const title = formData.get("title") || movieToEdit.title
+    const desc = formData.get("description") || movieToEdit.description
+    const imgUrl = formData.get("picUrl") || movieToEdit.imgUrl 
+    const price = formData.get("price") || movieToEdit.price
 
     const editMovieObj = {
       title,
@@ -40,17 +43,19 @@ const AdminView = (props) => {
 
     const editedMovie = await res.json()
     
-    props.setMovies(prev => prev.map(mov => mov.id === editedMovie.id ? editedMovie : mov))
+    props.setMovies(prev => prev.map(mov => mov.id == editedMovie.id ? editedMovie : mov))
+    
+    setToggleForm(prev => !prev)
   }
 
 async function createMovie(formData){
     const title = formData.get("title")
     const desc = formData.get("description")
-    const pictureUrl = formData.get("picUrl")
+    const pictureUrl = formData.get("picUrl") || placeholderPic
     const price = formData.get("price")
 
     const newMovie = {
-      id: Date.now(), //enbart för att fakeapiet skapar random sträng annars
+      id: String(Date.now()), //enbart för att fakeapiet skapar random datatyp annars
       title: title,
       description: desc,
       imgUrl: pictureUrl,
@@ -68,11 +73,19 @@ async function createMovie(formData){
     props.setMovies(prev => [...prev, savedMovie])
   }
 
+  function removeMovieById(id){
+    fetch(`http://localhost:3001/movies/${id}`, {
+      method: "DELETE"
+    })
+    
+    props.setMovies(prev => prev.filter(mov => mov.id !== id))
+  }
+
   const renderMovies = props.movies.map(movie => {
     return <div className="movie-element" key={movie.id}>
         <h3>{`${movie.title} (${movie.price}kr)`}</h3>
         <button onClick={() => handleClick(movie.id)}>Ändra</button>
-        <button>Ta bort</button>
+        <button onClick={() => removeMovieById(movie.id)}>Ta bort</button>
     </div>
   })
 

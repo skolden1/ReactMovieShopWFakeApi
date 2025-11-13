@@ -15,9 +15,7 @@ function App() {
       const response = await fetch("http://localhost:3001/movies")
       const data = await response.json()
 
-      const converDataObjIdToNumber = data.map(m => ({...m, id: Number(m.id)})) //idt är sträng när vi gör det till obj raden över, gör om idt till ett nmr igen.
-
-      setMovies(converDataObjIdToNumber)
+      setMovies(data)
       // console.log("app moviearr:", converDataObjIdToNumber)
     }
     getMovies()
