@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import { createMovieApi, deleteMovieApi } from "../services/movieService"
 
 const AdminView = (props) => {
 
@@ -62,22 +63,13 @@ async function createMovie(formData){
       price: price
     }
 
-    const res = await fetch('http://localhost:3001/movies', {
-      method: "POST",
-      body: JSON.stringify(newMovie),
-      headers:{"Content-Type": "application/json"}
-    })
-
-    const savedMovie = await res.json()
+    const savedMovie = await createMovieApi(newMovie)
 
     props.setMovies(prev => [...prev, savedMovie])
   }
 
-  function removeMovieById(id){
-    fetch(`http://localhost:3001/movies/${id}`, {
-      method: "DELETE"
-    })
-    
+  async function removeMovieById(id){
+    await deleteMovieApi(id)
     props.setMovies(prev => prev.filter(mov => mov.id !== id))
   }
 

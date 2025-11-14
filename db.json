@@ -27,13 +27,6 @@
       "description": "Sune på äventyr",
       "imgUrl": "https://filmhyllan.nu/images/zoom/sunessommarsunesjuldvd.jpg",
       "price": "25"
-    },
-    {
-      "id": "1763026952580",
-      "title": "test",
-      "description": "test besk",
-      "imgUrl": "https://www.nomadfoods.com/wp-content/uploads/2018/08/placeholder-1-e1533569576673.png",
-      "price": "399"
     }
   ],
   "comments": [
@@ -48,20 +41,6 @@
       "username": "Liam",
       "text": "Bra film heheh",
       "movieId": "3"
-    },
-    {
-      "id": "860c",
-      "username": "Andreas. P",
-      "text": "TEEEEEEEESToawkkaow",
-      "movieId": "2",
-      "dateTime": "2025-11-13"
-    },
-    {
-      "id": "b2a7",
-      "username": "Göran L",
-      "text": "Test teste okwaokwaokawk hej awwwwwwwwwwwwwww",
-      "movieId": "2",
-      "dateTime": "2025-11-13"
     }
   ]
 }

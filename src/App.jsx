@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import MovieDetail from "./components/MovieDetail"
 import AdminView from "./components/AdminView"
+import { getMoviesApi } from "./services/movieService"
 
 function App() {
 
@@ -11,14 +12,13 @@ function App() {
   const [searchbarInput, setSearchbarInput ] = useState("")
 
   useEffect(() => {
-    async function getMovies(){
-      const response = await fetch("http://localhost:3001/movies")
-      const data = await response.json()
+    async function getAllMovies(){
+      const allMovies = await getMoviesApi()
 
-      setMovies(data)
+      setMovies(allMovies)
       // console.log("app moviearr:", converDataObjIdToNumber)
     }
-    getMovies()
+    getAllMovies()
   }, [])
 
   

@@ -114,11 +114,12 @@ const renderComments = comments.map(comment => {
           <textarea
             name="editText"
             defaultValue={comment.text}
-            rows="3"
+            rows="10"
+            cols="50"
           ></textarea>
 
           <button type="submit">Spara</button>
-          <button type="button" onClick={() => toggleEdit(comment.id)}>Avbryt</button>
+          <button className="cancelBtn" type="button" onClick={() => toggleEdit(comment.id)}>Avbryt</button>
         </form>
       )}
     </div>

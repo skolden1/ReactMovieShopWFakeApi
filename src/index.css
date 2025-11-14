@@ -291,6 +291,10 @@ button:hover {
   font-style: italic;
 }
 
+.cancelBtn{
+  margin-left: 10px;
+}
+
 .trashIcon{
   cursor: pointer;
   font-size: 17px;
