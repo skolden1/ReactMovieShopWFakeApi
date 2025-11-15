@@ -2,8 +2,6 @@ import { Link } from "react-router-dom"
 
 const Header = (props) => {
 
-
-
   function searchMovie(formData){
     const searchbarInput = formData.get("searchbar")
     props.setSearchbarInput(searchbarInput)

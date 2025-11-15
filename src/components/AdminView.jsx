@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import { createMovieApi, deleteMovieApi } from "../services/movieService"
+import { createMovieApi, deleteMovieApi, editMovieApi } from "../services/movieService"
 
 const AdminView = (props) => {
 
@@ -36,13 +36,7 @@ const AdminView = (props) => {
       price
     }
 
-    const res = await fetch(`http://localhost:3001/movies/${editMovieId}`, {
-      method: "PUT",
-      body: JSON.stringify(editMovieObj),
-      headers: {"Content-Type": "application/json"}
-    })
-
-    const editedMovie = await res.json()
+    const editedMovie = await editMovieApi(editMovieId, editMovieObj)
     
     props.setMovies(prev => prev.map(mov => mov.id == editedMovie.id ? editedMovie : mov))
     

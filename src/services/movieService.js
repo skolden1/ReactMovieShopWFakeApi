@@ -26,3 +26,14 @@ export async function deleteMovieApi(id){
 
   return res
 }
+
+export async function editMovieApi(editMovieId, movieObj){
+  const res = await fetch(`${API_URL}/${editMovieId}`, {
+    method: "PUT",
+    body: JSON.stringify(movieObj),
+    headers: {"Content-Type": "application/json"}
+  })
+
+  const data = await res.json()
+  return data
+}
