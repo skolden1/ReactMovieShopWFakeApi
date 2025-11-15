@@ -1,6 +1,7 @@
 import { FaTrash, FaPencilAlt } from "react-icons/fa"
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
+import { getCommentsApi, removeCommentApi, postCommentApi, submitEditApi } from "../services/commentService"
 const MovieDetail = (props) => {
 
   const { id } = useParams()
@@ -13,9 +14,7 @@ const MovieDetail = (props) => {
 
   useEffect(() => {
   async function getComments(){
-    const res = await fetch(`http://localhost:3001/comments?movieId=${id}`)
-    const data = await res.json()
-
+    const data = await getCommentsApi(id)
     setComments(data)
   }
   getComments()
@@ -38,10 +37,7 @@ return <p className="loader">Laddar filmdata...</p>
 const movie = props.movies.find(mov => mov.id === id)
 
 async function removeComment(id){
-  fetch(`http://localhost:3001/comments/${id}`, {
-    method: "DELETE"
-  })
-
+  await removeCommentApi(id)
   setComments(prev => prev.filter(comment => comment.id !== id))
 }
 
@@ -55,28 +51,14 @@ async function postComment(formData){
       movieId: movie.id,
       dateTime: new Date().toLocaleDateString()
     }
-
-  const res = await fetch('http://localhost:3001/comments', {
-      method: "POST",
-      body: JSON.stringify(commentObj),
-      headers: {"Content-Type": "application/json"}
-    })
-  
-  const comment = await res.json()
-
+  const comment = await postCommentApi(commentObj)
   setComments(prev => [...prev, comment])
 }
 
 async function submitEdit(formData, id){
   const newText = formData.get("editText")
 
-  const res = await fetch(`http://localhost:3001/comments/${id}`, {
-    method: "PATCH",
-    body: JSON.stringify({text: newText}),
-    headers: {"Content-Type": "application/json"}
-  })
-
-  const editedComment = await res.json()
+  const editedComment = await submitEditApi(id, newText)
 
   setComments(prev => prev.map(c => c.id === editedComment.id ? editedComment : c))
   setEditById(null)

@@ -4,7 +4,7 @@ import { createMovieApi, deleteMovieApi, editMovieApi } from "../services/movieS
 
 const AdminView = (props) => {
 
-  //placeholder pic
+  //placeholder pic (if user dsnt upload img, this will be default)
   const placeholderPic = "https://www.nomadfoods.com/wp-content/uploads/2018/08/placeholder-1-e1533569576673.png"
 
   const [toggleForm, setToggleForm] = useState(false)
@@ -50,7 +50,7 @@ async function createMovie(formData){
     const price = formData.get("price")
 
     const newMovie = {
-      id: String(Date.now()), //enbart för att fakeapiet skapar random datatyp annars
+      id: String(Date.now()), //json api loves to change the type all the time, so i do this for now to always get a string
       title: title,
       description: desc,
       imgUrl: pictureUrl,
